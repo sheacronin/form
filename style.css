@@ -19,8 +19,9 @@ form {
     padding: 10px;
 }
 
-form p {
+form div {
     text-align: left;
+    transition: background-color 300ms ease-in-out;
 }
 
 label,
@@ -28,4 +29,8 @@ input {
     margin-left: 20px;
     margin-top: 10px;
     display: block;
+}
+
+.active {
+    background-color: pink;
 }

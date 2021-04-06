@@ -10,23 +10,27 @@
     <body>
         <h1>Form</h1>
         <form novalidate>
-            <p>
+            <div class="form-item">
                 <label for="email">Email address:</label>
                 <input type="email" name="email" id="email" required />
-            </p>
-            <p>
+                <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="form-item">
                 <label for="country">Country:</label>
                 <input type="text" name="country" id="country" required />
-            </p>
-            <p>
+                <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="form-item">
                 <label for="zipcode">Zipcode:</label>
                 <input type="number" name="zipcode" id="zipcode" required />
-            </p>
-            <p>
+                <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="form-item">
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" required />
-            </p>
-            <p>
+                <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="form-item">
                 <label for="password-confirm-confirm">Confirm Password:</label>
                 <input
                     type="password"
@@ -34,8 +38,9 @@
                     id="password-confirm"
                     required
                 />
-            </p>
-            <p><button id="submit">Submit</button></p>
+                <span class="error" aria-live="polite"></span>
+            </div>
+            <div><button id="submit">Submit</button></div>
         </form>
         <script src="script.js"></script>
     </body>
