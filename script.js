@@ -6,9 +6,8 @@ function toggleClass(el, cls) {
 }
 
 class FormItem {
-    constructor(container) {
-        this.container = container;
-        this.input = container.querySelector('input');
+    constructor(input) {
+        this.input = input;
         this.input.addEventListener('input', () => this.checkValidity());
         this.input.addEventListener('focus', () =>
             toggleClass(this.container, 'active')
@@ -16,24 +15,42 @@ class FormItem {
         this.input.addEventListener('blur', () =>
             toggleClass(this.container, 'active')
         );
-        this.error = container.querySelector('.error');
+        this.container = input.parentElement;
+        this.error = this.container.querySelector('.error');
     }
     checkValidity() {
-        if (!this.input.validity.valid) {
-            console.log('There is an error.');
+        if (this.input.validity.valid) {
+            this.error.textContent = '';
+            return true;
+        } else {
+            this.showError();
+            return false;
         }
     }
-    showError() {}
+    showError() {
+        if (this.input.validity.valueMissing) {
+            this.error.textContent = 'Please enter an input.';
+        } else if (this.input.validity.typeMismatch) {
+            this.error.textContent = 'Entered value must be (type).';
+        } else if (this.input.validity.patternMismatch) {
+            this.error.textContent = 'Please enter a valid (type).';
+        }
+    }
 }
 
-// const email = new FormItem(document.querySelector('#email'));
-
 const form = document.querySelector('form');
-const formItems = form.querySelectorAll('.form-item');
-formItems.forEach((item) => {
-    const formItem = new FormItem(item);
-    console.log(formItem);
-});
-// form.addEventListener('submit', )
 
-//console.log(email);
+//const email = new FormItem(document.querySelector('#email'));
+
+const formItems = [...form.querySelectorAll('input')].map(
+    (input) => new FormItem(input)
+);
+
+form.addEventListener('submit', (e) => {
+    for (let i = 0; i < formItems.length; i++) {
+        const validity = formItems[i].checkValidity();
+        if (!validity) {
+            e.preventDefault();
+        }
+    }
+});

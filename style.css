@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #f3e6c4;
+    background-color: #f7f0df;
     font-family: Arial, Helvetica, sans-serif;
     margin: 50px auto;
     text-align: center;
@@ -19,9 +19,10 @@ form {
     padding: 10px;
 }
 
-form div {
+.form-item {
     text-align: left;
-    transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-out;
+    position: relative;
 }
 
 label,
@@ -32,5 +33,12 @@ input {
 }
 
 .active {
-    background-color: pink;
+    background-color: #f3e6c4;
+}
+
+.error {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: red;
 }

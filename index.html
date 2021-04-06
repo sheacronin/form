@@ -17,12 +17,25 @@
             </div>
             <div class="form-item">
                 <label for="country">Country:</label>
-                <input type="text" name="country" id="country" required />
+                <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    required
+                    pattern="^[A-Za-z][A-Za-z\s]+"
+                    minlength="4"
+                />
                 <span class="error" aria-live="polite"></span>
             </div>
             <div class="form-item">
                 <label for="zipcode">Zipcode:</label>
-                <input type="number" name="zipcode" id="zipcode" required />
+                <input
+                    type="text"
+                    name="zipcode"
+                    id="zipcode"
+                    required
+                    pattern="\d{5}|\d{5}-\d{4}"
+                />
                 <span class="error" aria-live="polite"></span>
             </div>
             <div class="form-item">
