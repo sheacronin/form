@@ -95,3 +95,22 @@ input {
     cursor: pointer;
     color: white;
 }
+
+@media (max-width: 1000px) {
+    body {
+        margin: 30px auto;
+    }
+    form {
+        width: 100vw;
+        height: 104vh;
+        padding: 20px 0;
+    }
+    input {
+        width: 80%;
+    }
+    .error {
+        bottom: 0;
+        right: 20px;
+        top: auto;
+    }
+}
