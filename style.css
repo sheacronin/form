@@ -47,12 +47,23 @@ input {
     border: 1px solid #bfb8a8b8;
 }
 
+.valid {
+    background-color: #005b461f;
+    border: #005b4694 1px solid;
+}
+
+.invalid {
+    background-color: #cf1f001f;
+    border: #cf1f0094 1px solid;
+}
+
 .active {
     background-color: #fef0ca;
 }
 
 .active input {
     box-shadow: -2px 2px 5px #00000050;
+    background-color: white;
 }
 
 .error {

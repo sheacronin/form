@@ -25,6 +25,9 @@ class FormItem {
     }
     checkValidity() {
         console.log('checking validity...');
+        // Reset validity styling.
+        this.input.className = '';
+
         for (let i = 0; i < this.errors.length; i++) {
             // Store default false check.
             let checkFailed = false;
@@ -39,11 +42,15 @@ class FormItem {
             // If the check is true, there is an error.
             if (checkFailed) {
                 this.errorMessage.textContent = this.errors[i].message;
+                // Add invalid styling.
+                this.input.classList.add('invalid');
                 return false;
             }
         }
         // If looped through everything without finding error, then:
         this.errorMessage.textContent = '';
+        // Add valid styling.
+        this.input.classList.add('valid');
         return true;
     }
 }
@@ -55,7 +62,7 @@ const formItems = [...form.querySelectorAll('input')].map(
 );
 
 formItems.forEach((item) =>
-    item.addError('valueMissing', 'Please enter a value')
+    item.addError('valueMissing', 'Please enter a value.')
 );
 
 const email = formItems[0];
@@ -76,7 +83,7 @@ country.addError(
 const zipcode = formItems[2];
 zipcode.addError(
     'patternMismatch',
-    'Please enter a valid zip code consisting of 5 digits or 5 digits, followed by a dash and 4 digits. Example: 12345 or 12345-1234.'
+    'Please enter a valid zip code consisting of 5 digits or 5 digits, followed by a dash and 4 digits. Example: 12345 or 12345-1234'
 );
 const password = formItems[3];
 const confirmPassword = formItems[4];
